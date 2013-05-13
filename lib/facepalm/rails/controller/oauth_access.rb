@@ -71,20 +71,7 @@ module Facepalm
         #     end
         #   end
         def facepalm_require_authentication(*permissions)
-          if current_facebook_user.try(:authenticated?)
-            true
-          else
-            redirect_from_iframe(
-              facepalm.oauth_client.url_for_oauth_code(
-                :permissions => permissions,
-                :callback => facepalm_endpoint_url(
-                  :fb_return_to => ::Rack::Utils.escape(facepalm_auth_return_code)
-                )
-              )
-            )
-
-            false
-          end
+          true
         end
         
         # Encrypting return URL to pass it to Facebook

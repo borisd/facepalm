@@ -21,6 +21,12 @@ module Facepalm
         # top frame location. Use it to redirect user from within an iframe.
         def redirect_from_iframe(url_options)
           redirect_url = url_options.is_a?(String) ? url_options : url_for(url_options)
+          puts "\n\n -- Redirect [#{url_options.inspect}] to [#{redirect_url}]"
+          puts "from: #{caller}"
+          redirect_to url_options
+          return
+
+
 
           logger.info "Redirecting from IFRAME to #{ redirect_url }"
           

@@ -32,7 +32,7 @@ module Facepalm
 
       # Accessor to current facebook user. Returns instance of Facepalm::User
       def current_facebook_user
-        @current_facebook_user ||= fetch_current_facebook_user
+        @current_facebook_user ||= Facepalm::User.new
       end
 
       # Accessor to secure cookie set by Facebook
